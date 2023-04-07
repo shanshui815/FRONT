@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>flex布局</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin:0;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			font:600 20px '微软雅黑';
+		}
+		body{margin-bottom: 70px;
+		}
+		p{
+			text-align: center;
+		}
+		.header{
+			width: 100%;
+			height: 60px;
+			background-color: #528B8B;
+
+		}
+		.container{
+			width: 100%;
+			min-height: 100vh;
+			position: relative;
+			display: flex;
+		}
+		.lr{
+			width:200px;
+
+		}
+		.left{
+			background-color: #00BFFF;
+		}
+		.right{
+			background-color: #00CD66;
+
+		}
+		.center{
+			background-color:  	#E0FFFF;
+			flex-grow:1 
+		}
+		.footer{
+			width: 100%;
+			height:50px;
+			position: fixed;
+			bottom: 0;
+			left:0;
+			background-color: #DCDCDC;
+		}
+		.box{
+			align-items: center;
+			justify-content: center;
+			display: flex;
+
+		}
+		/*.line{
+			text-align: left;
+		}*/
+		.box-line{
+			margin:20px 0 0 15px ;
+		}
+		.box-line>p{
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box header"><p>Header</p></div>
+	<div class="container">
+		<div class="lr left"><p class="font">左侧边栏</p></div>
+		<div class="center"><p class="font">中间主体<br>XXXXXXXXXXXXXXXXXXXX<br>XXXXXXXXXXXXXXXXXXXXX<br>XXXXXXXXXXXX
+		</p>
+		<div class="box-line">
+			<p>盒子里有个p,盒子没有flex,p占据整行，text-align有用，center</p>
+			<p>盒子设置了flex，p高宽自适应内容，text-align无用，要在盒子上设置主轴和corss axis 方向</p>
+			<p class="line">布局参考：</p>
+			<p class="line"><a href="https://zh.learnlayout.com/position-example.html">zh.learnlayout.com</a></p>
+			<p class="line"><a href="http://ife.baidu.com/%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E7%8F%AD/css/flex.html">ife.baidu.com</a></p>
+		</div>
+	</div>
+	<div class="lr right"><p class="font">右侧边栏</p></div>
+</div>
+
+<div class="box footer"><p>Footer</p></div>
+</body>
+</html>

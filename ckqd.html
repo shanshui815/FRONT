@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>出库清单</title>
+	<style>
+		
+		#header{
+			text-align: center;
+			padding:1vw;
+			height: 15vh;
+			width:90vw;
+			margin:1vw auto;
+		}
+		h2{
+			margin:0.1vw auto;
+		}
+		p{
+			margin:0.1vw;
+		}
+		span{
+			font: 1rem 微软雅黑;
+/*			font:10 13px 微软雅黑;*/
+		}
+		.header_con{
+			height:15vh;
+			width: 90vw;
+			display: flex;
+			margin: 0 auto;
+		}
+		.con_left{
+			float:left;
+			height:15vh;
+			width: 30vw;
+			text-align: left;
+		}
+		.con_center{
+			height:15vh;
+			width: 30vw;
+			float:right;
+			text-align: left;
+		}
+		.con_right{
+			float:right;
+			height:35vh;
+			width: 30vw;
+			text-align: left;
+		}
+
+		table{
+			height:auto;
+			width: 90vw;
+			table-layout:fixed;
+			word-break:break-all;//超出部分换行 
+			border: 1vw solid black;
+			border-spacing: 0;
+			text-align: center;
+			margin:0 auto;
+		}
+		th,tr,td {
+		  border: 0.1vw solid black;
+		  border-spacing: 0;
+		  font: 1rem 微软雅黑;
+/*		  font:10 10px 微软雅黑;*/
+		}
+		td{
+			padding:0.2vw;
+		}
+		@media print{
+  .no-print{
+    display:none;
+  }
+}
+
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div class="no-print"><button  onclick="window.print()">打印</button></div>
+
+		<div id="header">
+			<h2>宁 波 勤 邦 新 材 料 科 技 有 限 公 司</h2>
+			<h2>出库清单</h2>
+			<div class="header_con">
+				<div class="con_left">
+					<p><span>收货单位：</span><span><b>宁波激阳新材料有限公司</b></span></p>
+					<p><span>收货地址：</span><span><b>象山</b></span></p>
+					<p><span>收货编号：</span><span><b>XK20230322007</b></span></p>
+				</div>
+				<div class="con_center">
+					<p><span>出库日期：</span><span><b>2023-03-22</b></span></p>
+				</div>
+				<div class="con_right">
+					<p><span>联系人：</span><span><b>张三三</b></span></p>
+					<p><span>电话：</span><span><b>15888197538</b></span></p>
+				</div>
+			</div>
+		</div>
+		<div id="table">
+			<table>
+				<tr>
+					<th class="hh" style="width:1cm;">行号</th>
+					<th class="pm" style="width:3.3cm;">品名</th>
+					<th class="gg" style="width:3cm;">规格</th>
+					<th class="dbq"style="width:2.2cm;">大标签条码</th>
+					<th class="xbq"style="width:2.6cm;">小标签条码</th>
+					<th class="ph" style="width:2.7cm;">批号</th>
+					<th class="dy" style="width:1cm;">电晕</th>
+					<th class="jx" style="width:1cm;">卷芯</th>
+					<th class="zl" style="width:1.5cm;">重量(KG)</th>
+				</tr><tr>
+					<td>1</td>
+					<td>透明扩散基脑KP10-T</td>
+					<td>0.275*1037*1500</td>
+					<td>F230309038 </td>
+					<td>2303060071-01</td>
+					<td>202303061101163</td>
+					<td>双电</td>
+					<td>6英寸</td>
+					<td>10605.5</td>
+				</tr></tr>
+					<td>1</td>
+					<td>透明扩散基脑KP10-在学校学习T</td>
+					<td>0.275*1037*1500</td>
+					<td>F230309038</td>
+					<td>2303060071-01</td>
+					<td>202303061101163</td>
+					<td>双电</td>
+					<td>6英寸</td>
+					<td>10605.5</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script>
+		
+	</script>
+</body>
+</html>
+
