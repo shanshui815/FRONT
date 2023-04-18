@@ -1,17 +1,13 @@
 # FRONT
 
-
 [html 预览](https://htmlpreview.github.io/)
 
-<<<<<<< HEAD
-# demo1-xiecheng 携程页面编写 flex 布局
-## [CSDN 笔记](http://t.csdn.cn/Yo9Wn)
 
-=======
-# xiecheng 携程页面编写 flex 布局
-- 笔记：[CSDN 笔记](http://t.csdn.cn/Yo9Wn)
-- 课程学习：[CSS3-flex布局](https://www.bilibili.com/video/BV1N54y1i7dG?p=12&vd_source=9d601459a3b282816969e39b91d0eb59)
->>>>>>> c67ca9831a19e4aa4be957f02379cf9e422fff01
+# demo1-xiecheng 
+携程主页编写 flex 布局  ；
+-  [CSDN 笔记](http://t.csdn.cn/naES0)
+- 课程学习b站：[CSS3-flex布局](https://www.bilibili.com/video/BV1N54y1i7dG?p=12&vd_source=9d601459a3b282816969e39b91d0eb59)
+
 
 # task 前缀的文件
 1. task-box.html  :百度前端技术学园 盒子作业

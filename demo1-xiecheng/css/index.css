@@ -250,7 +250,7 @@ nav{
 	overflow: hidden;
 }
 .sales-hd h2::after{
-	position: absolute;
+/*	position: absolute;*/
 	top:3px;
 	left:5px;
 	content: "";
