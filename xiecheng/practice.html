@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1,maximum-scale=1.0,minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<style type="text/css">
+		body{
+			max-width: 540px;
+			min-width:320px;
+			margin:0 auto;
+			font:normal 14px/1.5  Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+	color: #000;
+	background: #f2f2f2;
+			overflow-x: hidden;
+		}
+		div{
+			box-sizing: border-box;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.search-index{
+			display: flex;
+			max-width: 540px;
+			min-width: 320px;
+			width: 100%;
+			height: 44px;
+			background: #fff;
+			border-radius: 5px;
+
+		}
+		.search{
+			position: relative;
+			flex:1;
+			height: 23px;
+			margin: 8px 10px;
+			border: 1px solid #ccc;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+			border-radius: 5px;
+			font-size: 12px;
+			padding-left: 25px;
+			color:#666;
+			line-height: 22px;
+		}
+		.search::before{
+			content: "";
+			position: absolute;
+			top:3px;
+			left: 5px;
+			width: 15px;
+			height: 15px;
+			background: url(images/sprite.png) no-repeat -59px -279px;
+    		background-size: 104px auto;
+		}
+		.user{
+			width: 44px;
+			height: 44px;
+			font-size: 14px;
+			text-align: center;
+			color:#2eaae0 ;
+		}
+		.user::before{
+			content:"";
+			display: block;
+			height: 23px;
+			width: 23px;
+			background: url(images/sprite.png) no-repeat -59px -194px;
+			background-size:104px auto;
+			margin: 2px auto 0;
+		}
+	</style>
+	<title>携程在手，说走就走</title>
+		
+</head>
+<body>
+	<div class="search-index">
+		<div class="search">搜索：目的地/酒店/景点/航班导航</div>
+		<a href="#" class="user">我的</a>
+	</div>
+	
+</body>
+</html>
+
+<!-- body margin:0 auto; -->
+<!-- .user::before{
+行内元素 需要宽高 ，盒子属性
+三件套：content 来源 大小
+}
+
+固定的盒子 必须有宽度
+固定定位与父亲无关，以屏幕为准-》限定 min max
+
+居中：已经有定位了，不能用margin auto
+1. left +
+
+a是行内元素 没有大小  width height 不起作用
+
+有大小：1. display block   2. 绝对定位， -->
+
+<!-- .local-nav li [class^="local-nav-icon"]{
+.local-nav li 要一起存在
+.local-nav li .local-nav-icon2{
+形式前缀和前面要一样 -->

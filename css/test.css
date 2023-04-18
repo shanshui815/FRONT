@@ -21,7 +21,7 @@
 	background-color: #fff;
 	border-color: #ddd;
 	border-width: 10;
-	background-image: url('img/bg1.jpg');
+	background-image: url('../img/bg1.jpg');
 	background-size: 100%;
 /*	background-image:url(img/bg2.png);
 	background-repeat: no-repeat;
