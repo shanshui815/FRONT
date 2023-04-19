@@ -31,6 +31,6 @@ Content in the first column | Content in the second column
 3. git pull 下拉代码，使本地代码与远端代码一致。
 4. 重新上传代码
 > git add
-git commit -m "fix bug'
-git push
+> git commit -m "fix bug'
+> git push
 5. git remote -v 查看连接的远程仓库地址
