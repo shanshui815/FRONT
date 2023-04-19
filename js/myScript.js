@@ -922,12 +922,75 @@ var arr =['adam', 'LISA', 'barT'];//输出：['Adam', 'Lisa', 'Bart'];
 // console.log(d.toLocaleString());//1997/8/15 00:00:00
 // console.log(Date.now());//获取时间戳
 /*-------------------------------------------------正则------230416-2------------*/
-var re1 =/js/;
-var re2 = new RegExp('js');
+// var re1 =/js/;
+// var re2 = new RegExp('js');
 
-console.log(re1.test('js'));
+// console.log(re1.test('js'));
 
-/*----------------------------------Date---------------------230416-1------------*/
+/*-------------------------------------------------JASON-序列化-----230418-1------------*/
+// JavaScript对象
+// var zxx={
+// 	name:'zxx',
+// 	age:29,
+// 	birth:1994,
+// 	'middle-school': '\"W3C\" Middle School',
+// 	skills:['JavaScript', 'Java', 'Python', 'Lisp']
+// };
+// var s =JSON.stringify(zxx);
+
+//1.按照缩进输出
+// var s =JSON.stringify(zxx,null,'  ');
+//2.输出指定属性
+// var s = JSON.stringify(zxx,['name','age'],'  ');
+//3.传入函数，所有键值对的value被提前处理
+// function convert(key,value){
+// 	if(typeof(value)==='string '){//单引号。number string boolean null array object
+// 		return value.toUpperCase();
+// 	}
+// 	return value;
+// }
+// var s = JSON.stringify(zxx,convert,' ');
+
+//4.精确控制序列化，定义一个toJSON方法，返回需要序列化的数据
+// var yxx={
+// 	name:'yxx',
+// 	age:20,
+// 	birth:2003,
+// 	'middle-school': '\"W3C\" Middle School',
+// 	skills:['JavaScript', 'Java', 'Python', 'Lisp'],
+// 	toJSON:function(){
+// 		return {
+// 			'Name':'yxx',
+// 			"age":20
+// 		};
+// 	}
+// };
+// var s =JSON.stringify(yxx,null,' ');
+
+// console.og(s);
+/*----------------------------------JSON 反序列号---------------230418-2-----------------------*/
+// var j ={"name":"小明","age":14}; 错
+// var obj = JSON.parse(j);错
+
+// var obj = JSON.parse('{"name":"小明","age":14}',function(key,value){
+// 	if(key==='name')return value+'同学';
+// 	return value;
+
+// });
+
+// console.log(obj);
+/*----------------------------------JSON ---------------230418-3-----------------------*/
+//访问天气数据
+var url ="https://api.openweathermap.org/data/2.5/forecast?q=Beijing,cn&appid=800f49846586c3ba6e7052cfc89af16c";
+$.getJSON(url,function(data){
+	var info={
+		city:data.city.name,
+		weather:data.list[0].weather[0].main,
+		time:data.list[0].dt_txt
+	};
+	console.log(JSON.stringify(info));
+	console.log("xx");
+})
 
 
 /*----------------------------------草稿---------------------------------------*/
