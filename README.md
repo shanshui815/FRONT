@@ -4,22 +4,23 @@
 
 
 # demo1-xiecheng 
-携程主页编写 flex 布局  ；
+旧携程主页编写 flex 布局  ；
 -  [CSDN 笔记](http://t.csdn.cn/naES0)
 - 课程学习b站：[CSS3-flex布局](https://www.bilibili.com/video/BV1N54y1i7dG?p=12&vd_source=9d601459a3b282816969e39b91d0eb59)
 
 # demo2-newxiecheng
 
-现在的携程页面
+现在的携程页面参照
 https://m.ctrip.com/html5/
----
 
-# demo-pink
+
+
+# demo-pink目录
 - b站pink老师前端学习笔记 css3+h5
 - b站课程：[pink老师前端](https://www.bilibili.com/video/BV14J4114768?p=1&vd_source=9d601459a3b282816969e39b91d0eb59)
 - CSDN笔记：[前端知识点笔记](http://t.csdn.cn/Po4v9)
  
----
+
 # task 前缀的文件
 1. task-box.html  :百度前端技术学园 盒子作业
 2. task-box-1.html ：同上
@@ -27,6 +28,7 @@ https://m.ctrip.com/html5/
 # else
 1. list .html : 有道英语导出后格式化到网页，复制
 2. ckqd.html ：一个丑陋的table ,待改进
+
 ---
 格式：
 
