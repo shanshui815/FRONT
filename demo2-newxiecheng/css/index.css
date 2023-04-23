@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+	max-width: 540px;
+	min-width: 320px;
+	font:normal 16px/1.5 PingFangSC-regular,Tahoma,Lucida Grande,Verdana,Microsoft Yahei,STXihei,hei;
+	background: #eee;
+	overflow: hidden;
+	margin: 0 auto;
+	height: 2000px;
+}
+a{
+	text-decoration: none;
+	color: #000;
+	font-size: 12px;
+}
+li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.bg{
+/*	background:-webkit-linear-gradient(bottom ,rgba(255,255,255,0)0,rgba(255,255,255,0.2)5%)*/
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1)0%,rgba(255,255,255,0.5)90%, rgba(255,255,255,0)99%);
+	padding-bottom: 40px;
+	margin-bottom: -20px;
+}
+.search-index{
+	position: fixed;
+	top:0;
+	left:50%;
+	transform: translateX(-50%);
+	width: 100%;
+	height: 44px;
+	max-width: 540px;
+	min-width: 320px;
+	background:#fff;
+	color: #d7d5d3;
+}
+.search{
+	position: relative;
+	height: 32px;
+	border:2px solid blue;
+	border-radius: 15px;
+	margin: 6px 5px;
+	padding-left: 25px;
+}
+.search::before{
+	content: "";
+	position: absolute;
+	top:6px;
+	left: 8px;
+	width: 15px;
+	height: 15px;
+	background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+/*主导航栏*/
+.nav-main{
+	width: 100%;
+	height: 184px;
+	display: flex;
+	border-radius: 15px;
+	overflow: hidden;
+	margin-top: 44px;
+	padding: 0 4px;
+}
+.nav-main div{
+	flex: 1;
+	position: relative;
+	display: flex;
+	height: 184px;
+	flex-direction: column;
+	background: -webkit-linear-gradient(top,rgba(250,92,85,1)0%,rgba(251,129,80,1)20%) no-repeat;
+	z-index: 0;
+}
+.nav-main>::before{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: "";
+	width: 100%;
+	height: 66.6%;
+	background-color: #fff;
+	opacity: 0.8;
+	z-index:-1;
+}
+
+.nav-main div a{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	border: 1px solid #fff;
+}
+.nav-main div a:first-child{
+	color: #fff;
+}
+.nav-main a [class^="nav-main-icon"]{
+	width: 28px;
+	height:28px;
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/hotel.png") no-repeat ;
+	background-size: 28px;
+	margin-bottom:2px ;
+}
+.nav-main a .nav-main-icon2{
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/hotel_inn.png") no-repeat;
+	background-size: 28px;
+}
+.nav-main a .nav-main-icon3{
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/hotel_sale.png") no-repeat;
+	background-size: 28px;
+}
+.nav-main a .nav-main-icon4,
+.nav-main a .nav-main-icon5,
+.nav-main a .nav-main-icon6{
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/flight.png") no-repeat;
+	background-size: 28px;
+}
+.nav-main a .nav-main-icon7,
+.nav-main a .nav-main-icon8,
+.nav-main a .nav-main-icon9{
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/train_ticket.png") no-repeat;
+	background-size: 28px;
+}
+.nav-main a .nav-main-icon11,
+.nav-main a .nav-main-icon12,
+.nav-main a .nav-main-icon10{
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/vacation.png") no-repeat;
+	background-size: 28px;
+}
+.nav-main a .nav-main-icon14,
+.nav-main a .nav-main-icon15,
+.nav-main a .nav-main-icon13{
+	background: url("https://pic.c-ctrip.com/pic/platform/bbz/h5/h5home/v1/nav/main/gs.png") no-repeat;
+	background-size: 28px;
+}
+
+/*设置每列颜色*/
+.nav-main div:nth-child(2){
+	background: -webkit-linear-gradient(top,rgba(61,131,250,1)0%,rgba(79,175,250,1)25%) no-repeat;
+}
+.nav-main div:nth-child(3){
+	background: -webkit-linear-gradient(top,rgba(94,130,255,1)0%,rgba(101,161,255,1)25%) no-repeat;
+}
+.nav-main div:nth-child(4){
+	background: -webkit-linear-gradient(top,rgba(49,196,181,1)0%,rgba(78,214,179,1)25%) no-repeat;
+}
+.nav-main div:nth-child(5){
+	background: -webkit-linear-gradient(top,rgba(255,139,58,1)0%,rgba(255,164,68,1)25%) no-repeat;
+}
+/*sub-nav*/
+.sub-banner{
+	display: flex;
+	width: 100%;
+	height: 148px;
+	padding: 5px;
+/*	background: pink;*/
+}
+.sub-banner .banner{
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	height: 100%;
+	padding: 4px;
+	background: #fff;
+	border-radius: 8px;
+}
+.sub-banner .banner:nth-child(1){
+	margin-right: 5px;
+
+}
+.banner a{
+	display: flex;
+	justify-content: space-between;
+/*	background: red;*/
+}
+.title{
+	width: 73px;
+	height: 20px;
+}
+.slogan-rank1{
+	background: rgba(255,245,241);
+	color: #fa5d55;
+	padding: 2px;
+	font-weight:700 ;
+	border-radius: 5px;
+}
+.slogan-rank2{
+	background: rgba(255,249,242);
+	color: #ffa444;
+	padding: 2px;
+	font-weight:700 ;
+	border-radius: 5px;
+}
+.slider{
+	width: 100%;
+	border-radius: 8px;
+	height: 80px;
+	margin-top: 6px;
+	background: green;
+}

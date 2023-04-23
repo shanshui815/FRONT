@@ -1,3 +1,5 @@
+
+
 body{
 	max-width:540px;
 	min-width: 320px;
@@ -19,7 +21,7 @@ a{
 	text-decoration: none;
 }
 div{
-	box-sizng:border-box;
+	box-sizing:border-box;
 }
 .search-index{
 	display: flex;
@@ -250,7 +252,7 @@ nav{
 	overflow: hidden;
 }
 .sales-hd h2::after{
-/*	position: absolute;*/
+	position: absolute;
 	top:3px;
 	left:5px;
 	content: "";

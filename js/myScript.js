@@ -921,13 +921,17 @@ var arr =['adam', 'LISA', 'barT'];//输出：['Adam', 'Lisa', 'Bart'];
 // console.log(d);//Fri Aug 15 1997 00:00:00 GMT+0800 (中国标准时间)
 // console.log(d.toLocaleString());//1997/8/15 00:00:00
 // console.log(Date.now());//获取时间戳
+
+// var  now = new Date();
+// var d = new Date(1997,8,15,0,0,0,123);
+
 /*-------------------------------------------------正则------230416-2------------*/
 // var re1 =/js/;
 // var re2 = new RegExp('js');
 
 // console.log(re1.test('js'));
 
-/*-------------------------------------------------JASON-序列化-----230418-1------------*/
+/*------------------------------JASON-序列化-----230418-1------------*/
 // JavaScript对象
 // var zxx={
 // 	name:'zxx',
@@ -937,7 +941,6 @@ var arr =['adam', 'LISA', 'barT'];//输出：['Adam', 'Lisa', 'Bart'];
 // 	skills:['JavaScript', 'Java', 'Python', 'Lisp']
 // };
 // var s =JSON.stringify(zxx);
-
 //1.按照缩进输出
 // var s =JSON.stringify(zxx,null,'  ');
 //2.输出指定属性
@@ -967,33 +970,169 @@ var arr =['adam', 'LISA', 'barT'];//输出：['Adam', 'Lisa', 'Bart'];
 // };
 // var s =JSON.stringify(yxx,null,' ');
 
-// console.og(s);
-/*----------------------------------JSON 反序列号---------------230418-2-----------------------*/
+// var yxx={
+// 	name:'yxx',
+// 	age:20,
+// 	'middle-school':'schoole',
+// 	course:['数学','语文'],
+// 	toJSON:function(){
+// 		return {
+// 			name:this.name,
+// 			age:this.age,
+// 			course:this.course
+// 		}
+// 	}
+// };
+// var s = JSON.stringify(yxx,null,' ');
+
+// console.log(s);
+/*----------------------------------JSON 反序列化------230418-2-----*/
 // var j ={"name":"小明","age":14}; 错
 // var obj = JSON.parse(j);错
 
 // var obj = JSON.parse('{"name":"小明","age":14}',function(key,value){
 // 	if(key==='name')return value+'同学';
 // 	return value;
-
 // });
 
 // console.log(obj);
-/*----------------------------------JSON ---------------230418-3-----------------------*/
+/*----------------------------------JSON ---------------230418-3-------*/
 //访问天气数据
-var url ="https://api.openweathermap.org/data/2.5/forecast?q=Beijing,cn&appid=800f49846586c3ba6e7052cfc89af16c";
-$.getJSON(url,function(data){
-	var info={
-		city:data.city.name,
-		weather:data.list[0].weather[0].main,
-		time:data.list[0].dt_txt
+// var url ="https://api.openweathermap.org/data/2.5/forecast?q=Beijing,cn&appid=800f49846586c3ba6e7052cfc89af16c";
+// $.getJSON(url,function(data){
+// 	var info={
+// 		city:data.city.name,
+// 		weather:data.list[0].weather[0].main,
+// 		time:data.list[0].dt_txt
+// 	};
+// 	console.log(JSON.stringify(info));
+// });
+
+/*-------------------------------------------------230419-1 构造函数--------*/
+// //构造对象
+// function Student(stu){//不用返回this,自动返回，所以可以直接student.xxx属性
+// 	this.name=stu.name || '匿名';
+// 	this.age = stu.age|| '保密';
+// 	this.grade = stu.grade ||'未知';
+// }
+// Student.prototype.say = function(){
+// 	console.log(`hello,my name is ${this.name}!`);
+// }
+// Student.prototype.toJ = function(){
+// 	console.log(JSON.stringify(this,null,' '));
+// }
+// function createStudent(props){
+// //优点：一是不需要new来调用，二是参数非常灵活，可以不传，也可以这么传：
+// 	return new Student(props|| {});
+// }
+// // var yxx = new Student({
+// // 	name:'yxx',
+// // 	age:20,
+// // 	grade = 66//错
+// // });
+// var yxx = createStudent({
+// 	name:'yxx',
+// 	age:20,
+// 	grade : 66
+// });
+// yxx.say();
+// yxx.toJ();//toJSON不行
+/*-------------------------------------------------230420-1 class----------------*/
+// // 旧的
+// function Student(stu){
+// 	this.name = stu.name ;
+// 	this.age = stu.age;
+// }
+// Student.prototype.say=function(){
+// 	console.log(`hello, my name is ${this.name}`);
+// }
+
+
+// //es6新的class,
+// class Student{
+// 	constructor(stu){//避免了分散的代码
+// 		this.name = stu.name ;
+// 	this.age = stu.age;
+// 	}
+	
+// 	say(){
+// 		console.log(`hello, my name is ${this.name}`);
+// 	}
+// }
+// var stu =new Student({name:'yxx',age:28});
+// stu.say();
+
+//继承
+class Student{
+	constuctor(name){
+		this.name = name;
+	}
+	say(){
+		console.log(`hello, my name is ${this.name}`);
+	}
+};
+class PrimaryStudent extends Student{
+	constuctor(name,grade){
+		super(name);
+		this.grade =grade;
 	};
-	console.log(JSON.stringify(info));
-	console.log("xx");
-})
+	//新方法
+		 myGrade() {
+        alert('I am at grade ' + this.grade);
+    }
+}
 
+var stu = new PrimaryStudent('xyy',100);
+stu.myGrade();
 
-/*----------------------------------草稿---------------------------------------*/
+/*-------------------------------------------------2304-----------------*/
+
+/*----------------------------------草稿----------------------------------------------------*/
+//构造函数
+//1. 有对象
+// function Student(stu){
+// 	this.name=stu.name ||'匿名';
+// 	this.age =stu.age ||'保密';
+// }
+// //2，原型继承
+// Student.prototype.say=function(){
+// 	console.log(`hello , my nameis ${this.name}`);
+// }
+// Student.prototype.toJ=function(){
+// 	console.log(JSON.stringify(this,null,' ')); 
+	
+// }
+// //构造方法
+// function createStudent(props){
+// 	return new Student(props ||{});
+// }
+// var stu =createStudent();
+// stu.say();
+// stu.toJ();
+
+// //构造对象
+// function Student(stu){
+// 	this.name= stu.name || '匿名';
+// 	this.age =stu.age || '保密';
+// }
+// Student.prototype.say = function(){
+// 	console.log(`helle,my name is ${this.name}`);
+
+// }
+// Student.prototype.toJ=function(){
+// 	console.log(JSON.stringify(this,null,' '));
+// }
+// // Student.prototype.toJ=()=> JSON.stringify(this,null,' ');//错
+
+// function createStudent(props){
+// 	return new Student(props||{});
+// }
+// var xigua = createStudent();
+// console.log(xigua.name);
+// console.log(xigua.age);
+// xigua.say();
+// xigua.toJ();
+
 //rest 可变参数
 // console.log('---可变参数');
 // function argue(...rest){
