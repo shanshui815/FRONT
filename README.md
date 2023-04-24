@@ -28,7 +28,7 @@ https://m.ctrip.com/html5/
  
 # pink-js
 - 网盘pink老师javascript教程学习笔记
-- CSDN笔记：[【js】pink老师案例]()
+- CSDN笔记：[【js】pink老师案例](http://t.csdn.cn/ju0Vn)
 
 
 # other
