@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ### 获取用户信息 task-day1
+- 题目描述
+  依次询问并获取用户的姓名、年龄、性别，收集数据之后在控制台依次打印出来。
+  具体表现如下图：
+<img src="images/%E5%9B%BE%E7%89%871.png">
+<img src="images/%E5%9B%BE%E7%89%874.png">
+- 题目提示
+  - 通过prompt来弹出提示框，收集用户信息
+  - 通过变量保存数据 -->
+    <script>
+        var name = prompt('your name:');
+        var age = prompt('your age:');
+        var sex = prompt('your sex:');
+        console.log(`name:${name}`);
+        console.log(`age:${age}`);
+        console.log(`sex:${sex}`);
+    </script>
+
+
+<!-- 增加年龄
+- 题目描述
+  1、询问用户年龄，用户输入年龄后，把用户输入的年龄增加5岁
+  2、增加5岁后，通过弹出框提示用户 “ 据我估计，五年后，你可能XX岁了”
+  <img src="images/%E5%9B%BE%E7%89%875.png">
+  <img src="images/%E5%9B%BE%E7%89%876.png">
+- 题目提示
+  - 通过prompt来弹出提示框，收集用户信息
+  - 通过变量保存数据
+  - 转换数据类型(需要预习第二天的数据类型转换哟) -->
+<script>
+    let age = +prompt('your age is:');
+    alert(`after 5 years ,your age will be ${5+age}`)
+</script>
+
+
+<!-- 需求: 用户输入1个数，如果数字小于10，则前面进行补0，比如 09 03 等 -->
+<script>
+  let num = prompt('number:')
+  num = num < 10 ? '0'+num : num
+  alert(num)
+</script>
+
+</body>
+</html>

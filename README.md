@@ -15,6 +15,10 @@ https://m.ctrip.com/html5/
 
 
 # pink-css
+<<<<<<< Updated upstream
+=======
+软件推荐：量大小 faststone CAPTURE
+>>>>>>> Stashed changes
 
 现在的携程页面参照
 https://m.ctrip.com/html5/
