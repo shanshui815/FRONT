@@ -9,26 +9,18 @@
 - 课程学习b站：[CSS3-flex布局](https://www.bilibili.com/video/BV1N54y1i7dG?p=12&vd_source=9d601459a3b282816969e39b91d0eb59)
 
 # demo2-newxiecheng
-
 现在的携程页面
 https://m.ctrip.com/html5/
 
+# demo3-study
+学成网首页局部页面h5+c3编写 
+-CSDN笔记：[【css3+html5】b站pink老师 知识点笔记](http://t.csdn.cn/sbpaH) 
+	目录：P200 学成在线网页
 
 # pink-css
-<<<<<<< Updated upstream
-=======
-软件推荐：量大小 faststone CAPTURE
->>>>>>> Stashed changes
-
-现在的携程页面参照
-https://m.ctrip.com/html5/
-
-
-
-# demo-pink目录
 - b站pink老师前端学习笔记 css3+h5
 - b站课程：[pink老师前端](https://www.bilibili.com/video/BV14J4114768?p=1&vd_source=9d601459a3b282816969e39b91d0eb59)
-- CSDN笔记：[前端知识点笔记](http://t.csdn.cn/Po4v9)
+- CSDN笔记：[前端知识点笔记](http://t.csdn.cn/sbpaH)
  
 # pink-js
 - 网盘pink老师javascript教程学习笔记

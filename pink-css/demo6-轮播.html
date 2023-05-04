@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        ul{
+            list-style: none;
+        }
+        .box{
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin: 100px auto;
+            border: 8px solid #CDC5BF;
+            box-shadow: 5px 5px 3px  rgba(0,0,0,0.3);
+            overflow:hidden ;
+        }
+        .prev ,
+        .next{
+            position: absolute;
+            top:50%;
+            width: 30px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            background-color:rgba(0, 0, 0,0.2);
+            margin-top: -25px;
+           z-index: 2;
+        }
+        .prev{
+            left:0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+        .next{
+            right:0;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        .box .min{
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            width: 110px;
+            height: 16px;
+            margin-left: -55px;
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 8px;
+            z-index: 3;
+        }
+        .box .min li{
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            margin-left: 12px;
+            border-radius: 4px;
+        }
+        /*   错误，选择器权重低，不起作用
+        .selected{
+            background-color: #ff5000;
+        } */
+        .box .min .selected{
+            background-color: #ff5000;
+        }
+        /* 轮播图 */
+        .images {
+            display: flex;
+            position: absolute;
+            width: 500%;
+            height: 100%;
+            left:0 ;
+            z-index: 1;
+            /* transition: .2s; */
+        }
+        .images li {
+            width:100%;
+            background-size: cover;
+        }
+        .images li:nth-child(1){
+            background-image: url("images/pic (1).jpg");
+        }
+        .images li:nth-child(2){
+            background-image: url("images/pic (2).jpg");
+        }
+        .images li:nth-child(3){
+            background-image: url("images/pic (3).jpg");
+        }
+        .images li:nth-child(4){
+            background-image: url("images/pic (4).jpg");
+        }
+        .images li:nth-child(5){
+            background-image: url("images/pic (5).jpg");
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="#" class="prev">&lt;</a>
+        <a href="#" class="next">&gt;</a>
+        <ul class="images">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="min">
+            <li class=" selected"></li>
+            <li ></li>
+            <li ></li>
+            <li ></li>
+            <li ></li> 
+        </ul>
+    </div>
+    <script>
+        //1.轮播
+        let images = document.querySelector(".images")
+        let lists =document.querySelectorAll(".images li")
+        let minLists = document.querySelectorAll(".min li")
+        let prev =document.querySelector(".prev")
+        let next =document.querySelector(".next")
+        let index =0
+        var setIntervalId 
+        function position(){
+            images.style.left=`-${index*100}%`  ;//-100%
+            minLists[index].style.backgroundColor ='#ff0000';
+            // var i =(index -1+lists.length)%lists.length
+            // minLists[i].style.backgroundColor ='#fff';      
+            for(let j =0;j<lists.length;j++){
+                if(index!=j)minLists[j].style.backgroundColor ='#fff'; 
+            } 
+        }
+        function add(){
+            if(index <lists.length-1){
+                index++;
+            }else{
+                index=0;
+            }
+            // position()
+        }
+        function desc(){
+            if(index ==0){
+                index=lists.length-1
+            }else{
+                index --;
+            }
+        }
+        function timer(){
+            setIntervalId = setInterval(()=>{
+               add()
+               position()
+            },1000)
+        }
+
+        //按钮向前
+        prev.addEventListener("click",()=>{
+            desc();
+            position()
+            clearInterval(setIntervalId); //停止定时任务后，就没有了，得重新启动一个定时任务
+            timer()
+        })
+        //后
+        next.addEventListener("click",()=>{
+            add()
+            position()
+            clearInterval(setIntervalId)
+            timer()
+        })
+       //给每一个小点添加一个点击事件，跳转到对应图片
+       for(let k=0;k<lists.length;k++){
+        minLists[k].addEventListener("click",()=>{
+            index = k;
+            position()
+            clearInterval(setIntervalId)
+            timer()
+        })
+       }
+
+        timer()
+
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -88,12 +88,13 @@ a{
 }
 .search button{
     float: left;
-    width: 51px;
+    width: 50px;
     height: 41px;
     background:url("images/btn.png");
     border: 0;
 
 }
+
 /* 用户 */
 .user{
     float: right;
@@ -160,6 +161,7 @@ a{
     border-bottom: 1px solid #b7b7b7;
     padding: 13px 0;
 }
+
 .bd h4{
     font-size: 16px;
     color: #717171;
@@ -240,20 +242,33 @@ a{
     flex-wrap: wrap;
 }
 .box-bd ul li{
+    position: relative;
     height: 272px;
     width: 228px;
     background-color: #fff;
     margin-right: 15px;
     margin-top: 14px;
 }
-.box-bd ul li:nth-child(5n){
+.box-bd ul li .hot{
+    display: block;
+        position: absolute; 
+        top: 5px;
+        right: -4px;
+        width: 40px;
+
+}
+.box-bd ul li:nth-of-type(5n){
     margin-right: 0;
 }
+/* .box-bd ul li:nth-child(5n){
+    margin-right: 0;
+} */
 .box-bd ul li img{
     width: 100%;
 }
 .box-bd ul li h4{
     width: 185px;
+    height: 36px;
     margin: 20px 20px 20px 22px;
     font-size: 14px;
     font-weight: normal;

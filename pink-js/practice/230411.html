@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>字符串---数组的方法</h1>
+
+
+    <script>
+        /*---------------------------------------------230411-3---字符串---数组-----*/
+// //字符串 6个方法 
+var str="hello world!"
+console.log(str.length);
+console.log(`字符串模板使用反引号:${str}`);
+console.log(str[0]);
+
+console.log(str.indexOf('o'));
+console.log(str.toUpperCase());
+
+console.log(str.substring(1,3));//[1,3)
+console.log(str.substring(3));//截取3以及以后的
+
+var arrf = str.split('');//不加引号，就是一个元素的数组
+arrf.forEach(console.log);
+
+/* 字符串-》 数组  ；数组-》字符串*/
+var str1 = 'qwarasdazxav';
+var arr1 = str1.split('');
+console.log(arr1);// ["q", "w", "a", "r", "a", "s", "d", "a", "z", "x", "a", "v"]
+
+var arr2 = str1.split('a');
+console.log(arr2);//["qw", "r", "sd", "zx", "v"]
+
+//数组 9个方法
+// var arr1=[1,'四',5,6,7,8];
+var arr1=[1,4,9,6,30,8];
+console.log(arr1[0]);
+
+console.log(arr1.length);
+
+console.log(arr1.indexOf(1));
+console.log(arr1.indexOf('四'));
+
+console.log(arr1.slice(1,3)); //4 9
+console.log(arr1.slice(3));//6 30 8
+
+console.log(arr1.splice(1,2,2,3));//从1开始删除2个，添加2,3,返回删除的值 4，9；变为1，2，3，6，308
+console.log(arr1.splice(1,2));//只删除 返回2 ，3
+console.log(arr1.splice(1,0,2,3));//只添加
+
+console.log(`排序：${arr1.sort()}`);//排序是错的，要重新写 1 2 3 30 6 8
+console.log('重写sort');
+console.log(arr1.sort(function(x,y){
+	if(x>y)return 1;
+	if(x<y)return -1;
+	return 0;
+}))
+
+console.log(`倒序：${arr1.reverse()}`);
+
+console.log(arr1.push(55));//返回新长度 7
+console.log(arr1.pop());//55
+
+arr1.forEach(console.log);
+arr1.forEach(function(x){console.log(x);});
+
+console.log(`unshift:${arr1.unshift(-2)}`);//返回长度 7
+console.log(arr1.unshift(-1)); //length 8
+console.log(`从前删除shift：${arr1.shift(-1)}`);
+
+var con =[67,99];
+var con = arr1.concat([67,99]);
+console.log('---');
+con.forEach(function(x){console.log(x)});
+
+
+var new1 = arr1.join(' ~ ');
+console.log(new1);
+
+    </script>
+</body>
+</html>

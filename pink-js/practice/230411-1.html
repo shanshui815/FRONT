@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>遍历的方法</h1>
+
+
+    
+    <script>
+        /*---------------------------------------------230411-5-------------遍历--------*/
+// //for in 遍历对象，也可以遍历数组，但是本质遍历的是属性，数组也是对象
+// console.log('---for in 遍历对象');
+// var obj = {a:1, b:2, c:3};
+// for (var prop in obj) {
+//   console.log("obj." + prop + " = " + obj[prop]);
+// }
+// // Output:
+// // "obj.a = 1"
+// // "obj.b = 2"
+// // "obj.c = 3"
+
+// /*for in 遍历数组*/
+// console.log('---for in 遍历数组错误方法');
+// var arr = ['a','b','c'];
+// arr.name='zxx';
+// for(let i in arr){
+// 	console.log(i); //结果应该是属性，0，1，2，name
+// }
+// console.log('---for in 遍历数组正确方法');
+// for(let i in arr){
+// 	console.log(arr[i]);
+// }
+
+
+/*----for of  (ES6改进 数组 对象 map set )---*/
+// console.log('---for of 遍历数组--');
+// for(let x of arr){
+// 	console.log(x);
+// }
+// console.log('---for of 遍历map');
+// for(let x of map){
+// 	console.log(`key:${x[0]};value:${x[1]}`);
+// }
+// console.log('---for of 遍历set');
+// for(let x of set){
+// 	console.log(x);
+// }
+
+/*forEach*/
+// 	console.log('-----forEach------');
+// arr.forEach(function(e,i,arr){  //array
+// 	console.log(`${i}:${e}`);
+// });
+// set.forEach(function(e,samee,set){  //set
+// 	console.log(e);
+// });
+// map.forEach(function(value,key,map){//map
+// 	console.log(`${key}:${value}`); 
+// });
+    </script>
+</body>
+</html>
