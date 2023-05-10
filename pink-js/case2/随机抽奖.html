@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>年会抽奖</title>
+  <style>
+    .wrapper {
+      float: left;
+      width: 840px;
+      height: 420px;
+      background: url(./images/bg01.jpg) no-repeat center / cover;
+      padding: 100px 250px;
+      box-sizing: border-box;
+      
+    }
+    span{
+      color: blueviolet;
+    }
+    .images {
+      float: right;
+      width: 500px;
+      height: 400px;
+      margin: 20px;
+      overflow: hidden;
+    }
+    body{
+      background: url(images/desktop_1.jpg) no-repeat top center/cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h2>年会抽奖</h2>
+    <h1>一等奖：<span id="one">???</span></h1>
+    <h3>二等奖：<span id="two">???</span></h3>
+    <h5>三等奖：<span id="three">???</span></h5>
+  </div>
+
+  <div class="images">
+    <img src="images/1.webp" alt="">
+  </div>
+  <script>
+    const lists = ['zxx','yxx','xigua','caoming','gezi','baolu','linyi']
+    const one = document.querySelector("#one")
+    const two = document.querySelector("#two")
+    const three = document.querySelector("#three")
+    let index
+    //随机数 闭区间
+    function getRandom(n,m){
+      return Math.floor(Math.random()*(m-n+1))+n
+    }
+
+    /*抽奖*/
+    index = getRandom(0,lists.length-1)
+    one.innerHTML=lists.splice(index,1)
+    // one.innerHTML="111"
+    index = getRandom(0,lists.length-1)
+    two.innerHTML=lists.splice(index,1)
+    index = getRandom(0,lists.length-1)
+    three.innerHTML=lists.splice(index,1)
+
+    console.log(lists)
+
+
+    /*随机图片*/
+    const img = document.querySelector("img")
+    const i=getRandom(1,6)
+    img.src = `images/${i}.webp`
+
+    /*随机背景*/
+    const index0=getRandom(1,10)
+    // document.body.style.backgroundImage = `images/desktop_${index0}.jpg`   错
+    document.body.style.backgroundImage = `url(images/desktop_${index0}.jpg)`
+  </script>
+</body>
+
+</html>

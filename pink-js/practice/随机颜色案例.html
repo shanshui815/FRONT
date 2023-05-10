@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+<script>
+
+    function getRandom(n,m){
+        return Math.floor(Math.random()*(m-n+1))+n; //闭区间 [n,m]
+    }
+    function getRandomColor(flag=true){
+        //#ffffff 格式
+        if(flag){
+            let arr=['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+            let res = '#'
+            for(let i=0;i<6;i++){
+                let random = getRandom(0,arr.length-1)
+                res+=arr[random]
+            }
+            return res;
+        }else{
+            //rgb格式 rgb(255,155,255);
+            return `rgb(${getRandom(0,255)},${getRandom(0,255)},${getRandom(0,255)})`
+
+        }
+    }
+    
+    const div = document.querySelector("div")
+    randomColor = getRandomColor(false);
+    div.innerHTML= randomColor;
+    div.style.backgroundColor=randomColor;
+
+    // div.style.backgroundColor=getRandomColor('false');
+    // div.style.backgroundColor=getRandomColor();
+</script>
+</body>
+</html>

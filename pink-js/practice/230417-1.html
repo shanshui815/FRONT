@@ -46,25 +46,26 @@
 </head>
 
 <body>
-    <!-- <div class="box">
-        <div style="height: 123px;">
+    <div class="box">
+        <div class="zhuzi" style="height: 222px;">
             <span>123</span>
             <h4>第1季度</h4>
         </div>
-        <div style="height: 156px;">
+        <div class="zhuzi" style="height: 156px;">
             <span>156</span>
             <h4>第2季度</h4>
         </div>
-        <div style="height: 120px;">
+        <div class="zhuzi" style="height: 120px;">
             <span>120</span>
             <h4>第3季度</h4>
         </div>
-        <div style="height: 210px;">
+        <div class="zhuzi" style="height: 210px;">
             <span>210</span>
             <h4>第4季度</h4>
-        </div> -->
-
+        </div>
     </div>
+
+
     <script>
         let arr=[];
         for(let i=0;i<4;i++){
@@ -83,6 +84,16 @@
 
         document.write(`</div>`)
     </script>
+    
+    <!-- <script>
+        let arr=[];
+            for(let i=0;i<4;i++){
+                arr.push(prompt(`第${i+1}季度营业额`));
+            }    
+        let list = document.querySelectorAll(".zhuzi")
+        for(let i =0;i<list.length;i++){
+            list[i].style.height=`${arr[i]}px`  //字符串和单位不要忘记
+        }
+    </script> -->
 </body>
-
 </html>

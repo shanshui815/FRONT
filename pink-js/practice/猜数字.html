@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>猜数字</h1>
+    <script>
+        function getRandom(n,m){
+            return Math.floor(Math.random()*(m-n+1))+n
+        }
+        let random =getRandom(1,10)
+        document.write(random)
+        let num 
+        // while(true){
+        //     let num = +prompt("输入你猜的数字：")
+        //     if(num==random){
+        //         alert("right ")
+        //         break
+        //     }else if(num>random){
+        //         alert('猜大了')
+        //     }else{
+        //         alert('猜小了')
+        //     }
+        // }
+
+        // 限定次数
+        let flag =true
+        for(let i =0;i<3;i++){
+            let num = +prompt("请输入[1,10]任意数字，进行猜数字游戏：")
+            if(num==random){
+                alert("right  ！！ ")
+                flag=false
+                break
+            }else if(num>random){
+                alert('猜大了')
+            }else{
+                alert('猜小了')
+            }
+        }
+        if(flag) alert('sorry ! 您的次数已经用完')
+        
+
+    </script>
+</body>
+</html>

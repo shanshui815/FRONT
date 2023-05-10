@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>随机数 Math.random()</h1>
+    <script>    
+    // [0,10)
+    console.log(10*Math.random())
+    // [0,10]整数
+    console.log(Math.ceil(Math.random()*10))
+
+    /*随机数函数*/
+    function getRandom(n,m){
+        return Math.floor(Math.random()*(m-n+1))+n;
+    }
+    //n-m 整数  
+    // [0,m-n+1)
+    // console.log(Math.floor(Math.random()*(m-n+1)))
+    //+n
+    // console.log(Math.floor(Math.random()*(m-n+1))+n)
+    console.log(getRandom(5,33))
+
+    //人员名单随机
+    let arr =['mary','mike','lilei','hanmeimei','yxx','zxx']
+    let index 
+    for(let i=0;i<3;i++){
+        console.log(`第${i}次抽奖：`)
+        index= Math.floor(Math.random()*arr.length)
+        console.log(arr[index])
+    }
+
+    /* 随机点名案例*/
+    index = Math.floor(Math.random()*arr.length)
+    document.write(arr.splice(index,1))
+    console.log(arr)
+
+    </script>
+</body>
+</html>
