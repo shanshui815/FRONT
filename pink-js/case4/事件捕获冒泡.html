@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ma{
+            width: 300px;
+            height: 300px;
+            background-color: burlywood;
+        }
+        .da{
+            width: 150px;
+            height: 150px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="ma">
+        <div class="da"></div>
+    </div>
+    <button class="btn"> 按钮</button>
+    <script>
+        const ma = document.querySelector(".ma")
+        const da = document.querySelector(".da")
+        // document.addEventListener("click",function (e) {
+        //     alert("document alert")
+            
+        // })
+        ma.addEventListener("click",function (e) {
+            alert("mather alert")
+            e.stopPropagation() //阻止事件流动，无论上下
+        })
+        da.addEventListener("click",function (e) {
+            alert("daughter alert")
+            
+        },true) //默认false 从下网上冒泡
+        //true 从上往下捕获
+
+
+        //移除事件
+        const btn = document.querySelector(".btn")
+        function fn(){
+            alert("hello")
+        }
+        btn.addEventListener("click",fn);
+        btn.removeEventListener("click",fn)
+
+    </script>
+</body>
+</html>

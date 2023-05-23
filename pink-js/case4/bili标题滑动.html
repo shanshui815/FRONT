@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        ul li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: 1px solid black;
+        }
+
+        ul{
+            width: 25%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .line{
+            width: 24px;
+            height: 2px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><a href="#">标题</a></li>
+            <li><a href="#">标题</a></li>
+            <li><a href="#">标题</a></li>
+            <li><a href="#">标题</a></li>
+            <li><a href="#">标题</a></li>
+        </ul>
+        <div class="line"></div>
+    </div>
+        
+  
+
+    <script>
+        //事件委托
+        const ul = document.querySelector('ul')
+        const line = document.querySelector('.line')
+        ul.addEventListener('click',function(e){
+            if(e.target.tagName=='A'){
+                line.style.transform=`translateX(${e.target.offsetLeft}px)`
+            }
+        })
+    </script>
+</body>
+</html>

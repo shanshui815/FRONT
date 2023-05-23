@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    li{
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>第1个孩子</li>
+        <li>第2个孩子</li>
+        <li>第3个孩子</li>
+        <li>第4个孩子</li>
+        <li>第5个孩子</li>
+        <p>我不是孩子</p>
+    </ul>
+    <script>
+        // 原理是给父级元素添加事件，点击子元素，子元素事件没有，下一步冒泡到父亲，触发父亲的事件
+        const ul = document.querySelector("ul")
+        ul.addEventListener("click",function(e){
+            //1. 点击孩子触发
+            alert("child hello，只要是孩子就触发，但是只有li才会变红")
+
+            //点击当前孩子触发 ，定位到当前点击的li，并且是li不是其他元素
+            console.log(e) //里面有个属性target
+            console.log(e.target)
+            console.dir(e.target)//是一个对象 里面有个属性 tagName, LI
+            if(e.target.tagName =='LI'){
+                e.target.style.color ="red";  //e.target 是个对象，表示当前点击的那个标签
+            }
+
+
+        })
+    </script>
+</body>
+</html>

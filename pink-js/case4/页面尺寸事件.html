@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            position: relative;
+            display: inline-block;
+            height: 100px;
+            border: 6px solid purple;
+            margin: 100px;
+        }
+        p{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+        <div>我是盒子zzzzzzzzzzzzzzzzzzzzzzzzzzz
+            <p>段落</p>
+        </div>
+    
+    <script>
+        //尺寸变化
+        window.addEventListener('resize',function(){
+            // 一旦尺寸变化就触发
+            alert("尺寸变化了")
+        })
+
+        //获取元素宽度 高度 padding,不包括border
+        const div = document.querySelector('div')
+        console.log(div.clientWidth)  //276
+        //包括border 
+        console.log(div.offsetWidth) //加上lborder  +12 =288
+
+        //距离父亲定位 顶部，左边的距离；父亲没有定位，就一直找到最上的或者有定位的
+        const p = document.querySelector('p')
+        console.log(p.offsetTop) //108 body有8像素的外边距，
+
+
+    </script>
+</body>
+</html>

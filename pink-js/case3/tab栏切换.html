@@ -74,11 +74,11 @@
     <div class="tab-nav">
       <h3>每日特价</h3>
       <ul>
-        <li><a class="active" href="javascript:;">精选</a></li>
-        <li><a href="javascript:;">美食</a></li>
-        <li><a href="javascript:;">百货</a></li>
-        <li><a href="javascript:;">个护</a></li>
-        <li><a href="javascript:;">预告</a></li>
+        <li><a href="javascript:;" data-id="0" class="active" >精选</a></li>
+        <li><a href="javascript:;" data-id="1">美食</a></li>
+        <li><a href="javascript:;" data-id="2">百货</a></li>
+        <li><a href="javascript:;" data-id="3">个护</a></li>
+        <li><a href="javascript:;" data-id="4">预告</a></li>
       </ul>
     </div>
     <div class="tab-content">
@@ -89,19 +89,43 @@
       <div class="item"><img src="./images/tab04.png" alt="" /></div>
     </div>
   </div>
+  
 <script>
-  const nav = document.querySelectorAll(".tab-nav a")
-  const content = document.querySelectorAll(".tab-content .item")
+  /*原本的for循环*/
+  // const nav = document.querySelectorAll(".tab-nav li a")
+  
+  // for(let i=0;i<nav.length;i++){
+  //   nav[i].addEventListener("mouseover",function(){
+  //     document.querySelector(".tab-nav  .active").classList.remove('active')
+  //     this.classList.add("active")
+  //     document.querySelector(".tab-content .active").classList.remove("active")
+  //     document.querySelector(`.tab-content div:nth-child(${i+1})`).classList.add("active")
+  //   })
+  // }
 
-  for(let i =0 ;i<nav.length;i++){
-    nav[i].addEventListener('mouseenter',function(e){
-      document.querySelector(".tab-nav .active").classList.remove("active")
-      this.classList.add('active')
-      document.querySelector('.tab-content .active').classList.remove('active')
-      document.querySelector(`.tab-content .item:nth-child(${i+1})`).classList.add('active')
-    }
-    )
+
+/* 优化 委托给父元素，利用事件冒泡，子元素触发父元素事件，作用在当前点击的子元素(使用事件获取)，而不是父元素*/
+const nav = document.querySelector(".tab-nav ul")
+const items =document.querySelectorAll(".tab-content .item")
+
+
+nav.addEventListener("mouseover",function(e){
+  console.log(e.target.tagName)
+  //只有点击a 才会触发排他
+  if(e.target.tagName ==="A"){
+    document.querySelector(".tab-nav .active").classList.remove("active")
+    e.target.classList.add("active")
+
+
+    //获得当前点击的是第几个a 使用自定义属性 data-id   ;访问的时候 obj.data.id
+    let i =  +e.target.dataset.id
+    console.log(e.target)
+    document.querySelector(".tab-content .active").classList.remove("active")
+    // items[i].classList.add('active')
+    // 另一种方式 
+    document.querySelector(`.tab-content .item:nth-child(${i+1})`).classList.add('active')
   }
+})
 
 </script>
 </body>
