@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grandma">
+        <div class="ma">
+            <div class="big sistre"></div>
+            <div class="daughter">
+            </div>
+            <div class="little sister">
+            </div>
+        </div>
+    </div>
+    <script>
+        const me = document.querySelector('.daughter')
+        console.log(me)
+        console.log(me.parentNode)//关闭广告，获取到广告里的小叉，就可以
+        //多个小叉叫同一个类名
+        //1.  all 获取
+        //2. 遍历加事件
+        //3. 点击后各自父亲.display ='none'
+        console.log(me.parentNode.parentNode)
+        console.log(me.nextElementSibling)
+        console.log(me.previousElementSibling)
+        //xx.children  数组对象
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 220px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>  
+    <textarea name="" id="" cols="30" rows="10" placeholder="请在此输入评论...."></textarea>
+    <button> 提交 </button>
+    <div >
+123
+    </div>
+
+    <script>
+        const tx = document.querySelector('textarea')
+        const btn =document.querySelector('button')
+        const div =document.querySelector('div')
+        btn.addEventListener('click',function(e){
+            const str = tx.value
+            console.log()
+            tx.value =''
+            // const res = str.replace(/wc/ig,'口口')
+            const res = str.replace(/我草|wc/ig,'口口') //不能有空格
+            div.innerHTML=res
+        })
+
+    </script>
+    
+</body>
+</html>

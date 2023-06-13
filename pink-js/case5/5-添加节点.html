@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>第一个</li>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul')
+        //创建节点
+        const li = document.createElement('li')
+        li.innerHTML ='我是第一个的后一个'
+        //添加节点
+        ul.appendChild(li) //在后面
+
+
+        //永远插入到第一个元素前面
+        const l=document.createElement('li')
+        l.innerHTML ='用于插在最前面'
+        ul.insertBefore(l,ul.children[0])
+    </script>
+</body>
+</html>

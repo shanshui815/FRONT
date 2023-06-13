@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        localStorage.setItem('name','xigua')
+        console.log(localStorage.getItem('name')) //xigua
+        localStorage.removeItem('name')
+        console.log(localStorage.getItem('name')) //null
+
+        //取到的是字符串类型
+        localStorage.setItem('age',18)
+        console.log(typeof(localStorage.getItem('age')))//String
+
+        //存对象
+        var obj ={
+            uname:'mary',
+            age:35,
+            city:'浙江'
+        }
+        localStorage.setItem('my',JSON.stringify(obj))
+
+    </script>
+</body>
+</html>

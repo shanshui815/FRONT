@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 验证是否为Android或iPhone
+        // !(function(){
+        //     const userAgent = navigator.userAgent
+        //     const android = userAgent.match(/(Android);?[\s\/]+([\d.]+)?/)
+        //     const iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/)
+        //     if(android || iphone){
+        //         location.href='https://cn.bing.com/?mkt=zh-CN'
+        //     }
+        // })();
+
+        function isMobile() {
+    let userAgentInfo = navigator.userAgent;
+    let Agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+    let getArr = Agents.filter(i => userAgentInfo.includes(i));
+    return getArr.length ? true : false;
+  }
+    if(isMobile()) location.href='https://cn.bing.com/?mkt=zh-CN'
+
+
+
+    </script>
+</head>
+<body>
+
+    <script>
+
+    </script>
+    
+</body>
+</html>

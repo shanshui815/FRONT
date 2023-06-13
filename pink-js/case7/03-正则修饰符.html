@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        console.log(/^java$/.test('java')) //true
+        console.log(/^java$/.test('Java')) //false
+        console.log(/^java$/i.test('JAVA')) //true  不区分大小写
+
+        str ='wc 今天真wC倒霉 ！'
+        res = str.replace(/wc/i,'口口')
+        console.log(res)//口口 今天真wC倒霉 ！
+
+        re = str.replace(/wc/ig,'口口')
+        console.log(re)//口口 今天真口口倒霉 ！
+
+
+        
+    </script>
+    
+</body>
+</html>

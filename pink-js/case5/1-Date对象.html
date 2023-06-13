@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 400px;
+            height: 50px;
+            border: 2px solid pink;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+    <script>
+        /*15 将当前时间以:YYYY-MM-DD HH:mm 形式显示在页面 2023-05-24 09:31*/
+        const date = new Date()
+        function trans(x){
+            return x<10 ?'0'+x:x; // return x<10 ?`0${x}` :x;
+        }
+        // const d = `${date.getFullYear()}-${trans(date.getMonth()+1)}-${trans(date.getDate())} ${trans(date.getHours())}:${trans(date.getMinutes())}`  
+        // console.log(d)  //2023-05-24 09:59
+
+        /*2. 将当前时间以:YYYY-MM-DD HH:mm 形式显示在页面 2023-05-24 09:31*/
+        function getDay(){
+            const d = new Date()
+            return `今天是：${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 ${trans(d.getHours())}:${trans(d.getMinutes())}:${d.getSeconds()}`;
+        }
+        const div = document.querySelector('div')
+        div.innerHTML=getDay() //页面一刷新就显示，不用等1秒
+        setInterval(function(){
+           div.innerHTML=getDay()
+        },1000)
+
+        /*3. 简便快速没有格式要求*/
+        const div2 = document.querySelector('.div2')
+        const div3 = document.querySelector('.div3')
+        const div4 = document.querySelector('.div4')
+        div2.innerHTML = `date.toLocaleString():     ${date.toLocaleString()}`
+        div3.innerHTML = `date.toLocaleDateString(): ${date.toLocaleDateString()}`
+        div4.innerHTML = `date.toLocaleTimeString(): ${date.toLocaleTimeString()}`
+
+
+        /*相距天数 */
+        // let end = new Date(2022,11,31)  //表示2023 12月 31日
+        let end = new Date(2023,11,31)  //表示2023 12月 31日
+        // let end = new Date(2023,3,2)  //测试
+        console.log(end)  //Sun Dec 31 2023 00:00:00 GMT+0800 (中国标准时间)
+        let begin = new Date(2023,0,17)
+        console.log(begin ) //Sat Apr 01 2023 00:00:00 GMT+0800 (中国标准时间)
+        
+        let left = (end.getTime()-begin.getTime() )/(24*60*60*1000)
+        console.log(left ) //Sat Apr 01 2023 00:00:00 GMT+0800 (中国标准时间)
+        console.log(left/365* 5) //Sat Apr 01 2023 00:00:00 GMT+0800 (中国标准时间)
+
+
+
+    </script>
+</body>
+</html>

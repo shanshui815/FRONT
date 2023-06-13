@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>学生就业统计表</h1>
+    <form autocomplete="off" class="info">
+        <input type="text" class="uname" name="uname" placeholder="姓名">
+        <input type="text" class="age" name="age" placeholder="年龄">
+        <input type="text" class="salary" name="salary" placeholder="薪资">
+        <select name="gender" class="gender">
+            <option value="女">女</option>
+            <option value="男">男</option>
+        </select>
+        <select name="city" class="city">
+            <option value="成都">成都</option>
+            <option value="潮汕">潮汕</option>
+            <option value="拉萨">拉萨</option>
+            <option value="林芝">林芝</option>
+        </select>
+        <button>  <i class="iconfont icon-tianjia"></i>添加</button>
+    </form>
+
+    <div class="title">
+        共有数据 <span>0</span> 条
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+                <td>薪资</td>
+                <td>就业城市</td>
+                <td>录入时间</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>姓名</td>
+                <td>34</td>
+                <td>女</td>
+                <td>8000</td>
+                <td>拉萨</td>
+                <td>2023/6/2 13:23:40</td>
+                <td><a href="javascript:">
+                    <i class="iconfont icon-shanchu"></i>
+                    删除
+                </a></td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <script>
+        const info =document.querySelector('.info')
+        const uname = document.querySelector('.uname')
+        const age = document.querySelector('.age')
+        const  salary= document.querySelector('.salary')
+        const  gender= document.querySelector('.gender')
+        const  city= document.querySelector('.city')
+        const tbody = document.querySelector('tbody')
+        const title = document.querySelector('.title span')
+        const arr = JSON.parse(localStorage.getItem('data'))||[]
+        
+        render()
+
+        /*添加*/
+        info.addEventListener('submit',function(e){
+            e.preventDefault()
+            // console.log(11)
+            if(!uname.value || !age.value || !salary.value){
+                return alert('内容不能为空')
+            }
+            arr.push({
+                uId:arr.length ? arr[arr.length-1].uId+1 : 1 ,
+                uname:uname.value,
+                age:age.value,
+                salary:salary.value,
+                gender:gender.value,
+                city:city.value,
+                time:new Date().toLocaleString()
+            })
+            
+            localStorage.setItem('data',JSON.stringify(arr))
+            this.reset()
+            console.log(arr)
+            render()
+        })
+        /*渲染 map 每条数据生成一个tr(index在arr里第几个，删的时候也是删arr里的第几个)*/
+        function render(){
+            title.innerHTML= arr.length
+            let newArr = arr.map(function(e,index){
+                return `
+                <tr>
+                <td>${e.uId}</td>
+                <td>${e.uname}</td>
+                <td>${e.age}</td>
+                <td>${e.gender}</td>
+                <td>${e.salary}</td>
+                <td>${e.city}</td>
+                <td>${e.time}</td>
+                <td><a href="javascript:" data-id="${index}">
+                    <i class="iconfont icon-shanchu"></i>
+                    删除
+                </a></td>
+            </tr>
+                `
+            })
+            tbody.innerHTML=newArr.join('')
+
+        }
+        /*删除 使用事件委托*/
+        tbody.addEventListener('click',function(e){
+            
+            if(e.target.tagName==='A'){
+                    if(confirm('确定要删除吗？')){
+                arr.splice(e.target.dataset.id,1)
+                render()
+                localStorage.setItem('data',JSON.stringify(arr))
+                }
+            }
+            
+        })
+        /**/
+    </script>
+</body>
+</html>
