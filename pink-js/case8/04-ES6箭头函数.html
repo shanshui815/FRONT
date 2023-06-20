@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-ES6箭头函数</title>
+</head>
+<body>
+    <script>
+        // 箭头函数 为匿名函数设计
+        // const fn = function(){
+        //     console.log(11)
+        // }
+        // fn()
+
+        // const fn = ()=>{
+        //     console.log(1)
+        // }
+        // fn()
+
+        // const fn = ()=>console.log(1)
+        // fn()
+
+
+        // const fn = x=>console.log(x)
+        // fn(2)
+
+        // const fn = (x,y)=>console.log(x+y)
+        // fn(2,5)
+
+        // const fn = (a,b,...arr)=>{
+        //     for(let i=1;i<arr.length;i++){
+        //         arr[0]+=arr[i]
+        //     }
+        //     console.log(`${a}和${b}吃了${arr[0]}个苹果`)
+        // }
+        // fn('小果','小猫',1,2,3)//小果和小猫吃了6个苹果
+
+        /*对象  加括号 返回值，return可以省略*/
+        const fn = (name)=> ({name:name,age:11,city:{town:'快乐小镇',home:'happy home'}})  //返回值，需要接收
+        // fn() 错
+        const obj = fn("韩梅梅")
+        console.log(obj)  
+
+        // 加括号的函数体返回对象字面量表达式
+
+
+
+
+
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

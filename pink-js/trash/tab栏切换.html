@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+
+        }
+        li {
+            list-style: none;
+        }
+
+        .filter{
+            width: 40%;
+            height: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .filter a{
+            width: 100px;
+            height: 40px;
+            display: block;
+            margin-right: 20px;
+            background:#f5f5f5;
+            color: #666;
+            line-height: 40px;
+            text-align: center;
+
+        }
+    .filter a:hover{
+        background:#05943c ;
+        color: white;
+    }
+
+
+    .tab ul{
+        display: flex;
+        flex-direction: row;
+
+    }
+    .tab ul li a{
+        display: block;
+        width: 100px;
+        height: 40px;
+        background:#f5f5f5;
+        color: #666;
+            line-height: 40px;
+            text-align: center;
+        margin-right: 20px;
+    }
+    .tab ul  .active{  
+        /* 要加前缀  .active  错误 */
+        background: #05943c;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="filter">
+        <a href="javascript:;">0-100元</a>
+        <a href="javascript:;">100-300元</a>
+        <a href="javascript:;">300-400元</a>
+        <a href="javascript:;">全部区间</a>
+    </div>
+
+    <div class="tab">
+        <ul >
+            <li ><a href="javascript:;" class="active">0-100元</a></li>
+            <li><a href="javascript:;">100-300元</a></li>
+            <li><a href="javascript:;">300-400元</a></li>
+            <li><a href="javascript:;">全部区间</a></li>
+        </ul>
+    </div>
+
+    <script>
+        //排他
+        const ul =document.querySelector('.tab ul ')
+        ul.addEventListener('click',e=>{
+            if(e.target.tagName ==='A'){
+                ul.querySelector('.active').classList.remove("active")
+                e.target.classList.add('active')
+            }
+        })
+    </script>
+</body>
+</html>

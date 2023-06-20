@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数 this</title>
+    <style>
+        button{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button>
+        按钮
+    </button>
+    <script>
+        /*被谁调用 this指向谁*/
+
+        // console.log(this)  //window
+
+        // function fn(){
+        //     console.log(this)//window
+        // }
+        // fn()
+
+        // const obj={
+        //     unmae:'xx',
+        //     sayHi:function(){
+        //         console.log(this)  
+        //     }
+        // }
+        // obj.sayHi() //obj   
+
+
+
+        /*箭头函数的this*/
+
+        // const fn =()=>console.log(this)
+        // fn() //window
+
+        //对象方法里的箭头函数
+        // 箭头函数没有this
+        // 上一层是obj
+        // obj被windows调用
+        // 所以this 指向window
+        // const obj={
+        //     unmae:'xx',
+        //     sayHi:()=> console.log(this)  
+        // }
+        // obj.sayHi() //window   
+
+        // 对象方法里function 里的箭头函数
+        const obj={
+            uname:'xx',
+            sayHi:function(){
+                let x=2
+                const fn =()=>{
+                    console.log(this) 
+                 }
+                fn()
+            }
+        }
+        obj.sayHi() //obj
+        // 箭头函数没有this 
+        // 到上一次去找
+        // 上一层是普通function 有this
+        // this指向调用者
+        // 函数调用者是obj 
+
+        /*回调函数里的this*/
+        const btn = document.querySelector('button')
+        // btn.addEventListener('click',function(){
+        //     alert(this)  //object  this指向btn
+        // })
+
+        btn.addEventListener('click',()=>{
+            alert(this)//window
+        })
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

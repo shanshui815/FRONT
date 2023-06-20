@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // arguments  伪数组，不能push pop
+        function fun(){
+            let sum=0  //要赋初值
+            for(let i=0;i<arguments.length;i++){
+                sum+=arguments[i]
+            }
+            console.log(sum)
+        }
+        fun(1,2,3) //6
+        fun(1,2,3,4,5,6)  //21
+
+        console.log('------剩余参数----------')
+
+        //... 剩余参数
+        function fn(...arr){
+            let sum=0  
+            for(let i=0;i<arr.length;i++){
+                sum+=arr[i]
+            }
+            console.log(sum)
+        }
+        fn(2,2,2) //6
+        fn(3,3,3,3) //12
+
+        function f(x,y,...arr){
+            let sum=0  
+            for(let i=0;i<arr.length;i++){
+                sum+=arr[i]
+            }
+            console.log(`${x}给了${y}${sum}个苹果`)
+        }
+        f('小明','小红',1,2,3) //小明给了小红6个苹果
+
+
+ // 展开运算符
+ console.log('-------展开运算符---------')
+        const arr = [1,2,3]
+        console.log(...arr)  // ===  1，2，3 有逗号
+
+        //1. 求max/min
+        console.log(Math.max(...arr))  //3
+        console.log(Math.max(1,2,3)) //3
+        //2. 合并
+        const arr1 = [4,5,6]
+        let a =  [...arr,...arr1]
+        console.log(...a)
+
+    </script>
+</body>
+</html>

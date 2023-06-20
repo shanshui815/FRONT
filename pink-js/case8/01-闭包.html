@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 闭包 外部访问 函数内部的变量
+        // function outer(){
+        //     let a= 10
+        //     function fn(){
+        //         console.log(a)
+        //     }
+        // }
+        // outer()
+
+
+        function outer(){
+            let a= 10
+            function fn(){
+                console.log(a)
+            }
+            return fn
+        }
+        // let fun = outer()  //const let都可以，全局
+        const fun = outer()
+        fun()  //10 
+        
+        // //计算函数被调用的次数 （全局）
+        // let  count =0
+        // function cou(){
+        //     count++
+        //     console.log(`调用了该函数${count}次`)
+        // }
+        // cou()  //count会背修改，
+
+
+        // 只提供对变量的操作，不提供变量本身
+        //实现数据的私有 ，无法直接修改count
+        function Count(){
+            let count=0
+            function fn(){
+                
+                console.log(`调用了该函数${++count}次`)
+            }
+            return fn
+        }
+        const func = Count()
+        func()
+
+    </script>
+</body>
+</html>

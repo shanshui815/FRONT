@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //变量提升
+        console.log(a) //undefined 
+        var a = 11   //使用let  const报错 ES6
+        // var会把变量声明提升，但是不提升赋值
+
+        // 函数提升
+        fun()  //打印：函数提升
+        function fun(){
+            console.log('函数提升')
+        }   
+        // 函数提升声明 ↑
+
+        //但是不提示赋值 ↓
+        fn()  //错误 函数表达式是赋值，不是声明
+        var fn = function(){
+            console.log('函数表达式')
+        }
+
+
+
+    </script>
+</body>
+</html>
