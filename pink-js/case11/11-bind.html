@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <script>
+        //bind apply 改变this指向且调用
+        // bind 仅改变
+        const obj ={}
+        function fn(){
+            console.log(this)
+        }
+        const fun =fn.bind(obj)
+        console.log(fun())  //obj
+
+        //使用场景：仅改变指向，但是现在不调用
+        const btn =document.querySelector('button')
+        btn.addEventListener('click',function(){
+            this.disabled=true
+            // window.setTimeout(function(){
+            //     btn.disabled=false
+            //     // this.disabled=false//this指向window
+            // },2000)
+
+            window.setTimeout(function(){
+                this.disabled=false//this指向btn
+            }.bind(this),2000) //this就是btn
+            
+        })
+       console.log()
+
+
+       
+        </script>
+</body>
+</html>

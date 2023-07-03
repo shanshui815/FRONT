@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn1"> 按钮</button>
+    <button class="btn2"> 按钮箭头</button>
+    <script>
+        //普通函数的this
+        console.log(this) //window
+        function fn(){
+            console.log(this)//window
+        }
+        window.fn()
+        window.setTimeout(function(){
+            console.log(this)  //w
+        },1000)
+        document.querySelector('.btn1').addEventListener('click',function(){
+            console.log(this)  //button
+        })
+        const obj ={
+            fn:function(){
+                console.log(`obj:${this}`)//obj
+            }
+        }
+        obj.fn()
+
+        //箭头函数的this
+        document.querySelector('.btn2').addEventListener('click',()=>{
+            console.log(this)  //win
+        })
+
+        //原型对象和构造慎用箭头
+        function Food(){
+            this.size='空'
+        }
+        Food.prototype.spec=()=>{
+            // this.size='非空'
+            console.log(`food:${this.size}`) //undefined
+        }
+        const f =new Food()
+        console.log(f.spec())  
+        
+        Food.prototype.spec1=function(){
+            // this.size='非空'
+            console.log(`food1:${this.size}`) //空 ，可以获取到food
+        }
+        const fo =new Food()
+        console.log(fo.spec1())  
+
+
+
+    </script>
+</body>
+</html>

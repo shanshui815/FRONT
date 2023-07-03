@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-对象原型__proto__</title>
+</head>
+<body>
+    <script>
+        //1. 每个对象都有_proto_,显示为[[Prototype]]
+        function Star(name){
+            this.name =name
+        }
+        const wf = new Star('王菲')
+        console.log(wf)  //有[[Prototype]]
+
+        //2.  指向原型对象
+        console.log(wf.__proto__=== Star.prototype)  //true
+        
+        //3.  constructor 都指向构造
+        console.log(wf.__proto__.constructor=== Star.prototype.constructor)  //true
+        
+    </script>
+</body>
+</html>

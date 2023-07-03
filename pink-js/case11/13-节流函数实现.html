@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    div{
+        width: 400px;
+            height: 400px;
+            background-color: pink;
+            text-align: center;
+            line-height: 400px;
+            font-size: 50px;
+        font-weight: 700;
+        color:white;
+    }
+</style>
+</head>
+<body>
+    <div></div> 
+    <p>改变中的秒数：</p>
+    <span></span>
+    <script src="./lodash.min.js"></script>
+    <script>
+        const span =document.querySelector('span')
+        setInterval(()=>span.innerHTML = new Date().getSeconds(),1000)
+
+        const div =document.querySelector('div')
+        let i=0
+        function mouseMove(){
+            i++
+            div.innerHTML=i
+        }
+        // div.addEventListener('mousemove',mouseMove)
+
+// lodash 节流
+        // div.addEventListener('mousemove',_.throttle(mouseMove, 3000))
+
+
+// 手写一个节流函数- 每隔 50ms + 1
+    // 节流的核心就是利用定时器(setTimeout) 来实现
+    // 1.声明一个定时器变量
+    // 2.当鼠标每次滑动都先判断是否有定时器了，如果有定时器则不开启新定时器
+    // 3.如果没有定时器则开启定时器，记得存到变量里面
+    // 3.1定时器里面调用执行的函数
+    // 3.2定时器里面要把定时器清空
+    function throttle(fn,t){
+        let timer
+        return function(){
+            if(!timer){
+                timer=setTimeout(function(){
+                    fn()
+                    t=null//为什么用null赋值，覆盖住（定时任务里无法清除）
+                },t)
+            }
+        }
+    }
+
+div.addEventListener('mousemove',throttle(mouseMove, 3000))
+
+// 为什么用null赋值
+    let t=null 
+    t = setTimeout(function(){
+        clearTimeout(t)
+        console.log(t)  ///1
+    },1000)  
+    // 在 setTimeout 中是无法删除定时器的，因为定时器还在运作，所以使用 timer =null 而不是 cLearTimeout(timer)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-原型继承</title>
+</head>
+<body>
+    <script>
+        function People(){
+            this.eye =2
+            this.nose =1
+        }
+
+        function Woman(){}
+        function Man(){}
+        Woman.prototype=new People()
+        Woman.prototype.constructor = Woman
+        Man.prototype = new People()
+        Man.prototype.constructor = Man
+
+        //女人独有的
+        Woman.prototype.create={
+            create:function(){console.log('创造生命')}
+        }
+        //男人独有的
+        Man.prototype.pi={
+            create:function(){console.log('吹牛打屁抽烟喝酒')}
+        }
+
+        const nv = new Woman()
+        console.log(nv)
+        const nan = new Man()
+        console.log(nan)
+
+
+
+
+
+    </script>
+</body>
+</html>

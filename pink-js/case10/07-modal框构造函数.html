@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal框</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        @media screen and (min-width:200px) {
+            html{
+                font-size: 14px;
+            }
+        }
+        .modal{
+            width: 17rem;
+            height: 7rem;
+            border: 1px solid black;
+            border-radius: 0.5rem;
+            /* box-shadow: ; */
+        }
+        .title{
+            font-size: 1.5rem;
+            /* background-color: pink ; */
+            margin:0.5rem;
+        }
+        .title i {
+            display: inline-block;
+            margin-left: 8rem;
+            color: gray;
+        }
+        .body{
+            font-size: 1.2rem;
+            /* background-color: red ; */
+            text-align: center;
+            margin-top: 1rem;
+            /* font-weight: 600; */
+
+        }
+    </style>
+</head>
+<body>
+    <button  id="delete">删除</button>
+    <button id="login">登录</button>
+    <!-- <div class="modal">
+        <div class="title">温馨提示<i>X</i></div>
+        <div class="body">您没有删除权限</div>
+    </div> -->
+
+    <script>
+        //1.  构造函数封装模态框
+        function Modal(title='',message=''){
+            //1.1 创建标签
+            this.modalBox = document.createElement('div')
+            //1.2 添加类名
+            this.modalBox.className="modal"
+            //1.3 填充标签
+            this.modalBox.innerHTML=`
+            <div class="title">${title}<i>X</i></div>
+        <div class="body">${message}</div>
+            `
+            console.log(this.modalBox)
+        }
+
+
+        //2. 挂载open
+        Modal.prototype.open = function(){
+            //创建自己这个构造函数this.modal时，先判断有没有modal元素
+            const box =document.querySelector('.modal')
+            box && box.remove()
+
+            document.body.append(this.modalBox)
+            this.modalBox.querySelector('i').addEventListener('click',()=>{
+                // this.modalBox.close()  错误,add里面有自己的this 
+                //使用function 里面的this指向i ，close在构造函数里，i获取不到
+                // 箭头函数的调用者i元素没有this，this指向调用者i元素的调用者modal
+                this.close()
+            })
+        }
+
+       //3. 挂载close
+        Modal.prototype.close=function(){
+            this.modalBox.remove()
+        }
+
+        document.querySelector('#delete').addEventListener('click',()=>{
+            const modal = new Modal('温馨提示','您没有删除权限')
+            modal.open()
+        })
+        document.querySelector('#login').addEventListener('click',()=>{
+            const modal = new Modal('友情提示','您还没有注册')
+            modal.open()
+        })
+        
+
+    </script>
+
+</body>
+</html>

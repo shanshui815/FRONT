@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1. 赋值
+        const obj={
+            name:'zxx',
+            city:{
+                town:'daxu'
+            }
+        }
+        const o = obj
+        o.name='yxx'
+        console.log(o)  //yxx
+        console.log(obj)  //yxx 不改变
+
+        console.log('-----1-------')  
+
+        //2. 浅拷贝 展开运算符
+        const obj1={
+            name:'zxx',
+        }
+        const oo={...obj1}
+        oo.name='yxx1'
+        console.log(oo)  //yxx1 改变
+        console.log(obj1)  //zxx 不改变
+
+        console.log('-----2-------') 
+
+        //3. 浅拷贝 Object.assign
+        const obj2={
+            name:'zxx',
+        }
+        let ooo ={}
+        Object.assign(ooo,obj2)
+        ooo.name='yxx2'
+        console.log(ooo)  //yxx2 改变
+        console.log(obj2)  //zxx 不改变
+
+
+        //简单数据类型在栈
+        //复杂（引用）数据类型在堆 ：对象
+        //对象：浅拷贝和赋值——复制地址，一起改变
+        //简单：浅拷贝和赋值一样
+        console.log('------3------') 
+        //4. 多层对象的数据，浅拷贝失败，简单数据类型赋值，对象还是复制地址
+        const obj3={
+            name:'zxx',
+            city:{
+                town:'daxu'
+            }
+        }
+        let o3 ={}
+        Object.assign(o3,obj3)
+        o3.name='yxx3'
+        o3.city.town='ningbo'
+        console.log(o3)  // ningbo都改变
+        console.log(obj3)  // ningbo都改变
+
+
+
+
+    </script>
+</body>
+</html>

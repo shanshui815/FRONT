@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //split 字符串分割 返回数组
+        const str = 'hello,my name is zxx'
+        const arr = str.split(',')
+        console.log(arr)
+
+        //substring 
+        const str1 = str.substring(1)
+        const str2 = str.substring(str.indexOf('my'))
+        console.log(str1)
+        console.log(str2)
+
+        //startsWith() 方法用来判断当前字符串是否以另外一个给定的子字符串开头，并根据判断结果返回 true 或 false
+        console.log(str.startsWith('hello'))
+        
+        //includes 包含
+        console.log(str.includes('hello'))  //true
+        console.log(str.includes('hello',2))  //false
+
+    </script>
+</body>
+</html>

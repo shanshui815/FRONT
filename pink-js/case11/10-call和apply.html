@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call
+        const obj ={}
+        function fn(x,y){ 
+            console.log(`${this}`)//obj
+            console.log(x+y)
+        }
+        fn.call(obj,1,2)
+//apply
+        const obj1 ={}
+        function fn1(x,y){ 
+            console.log(`${this}`)//obj1
+            console.log(x+y)
+        }
+        fn1.apply(obj1,[11,22])
+
+        //max的三种方法，1.自己写
+        //2.apply
+        const arr=[1,2,3]
+        console.log(Math.max(arr))//NaN
+        console.log(Math.max.apply(null,arr))//3
+        console.log(Math.max.apply(Math,arr))//3  max是方法，不要加括号
+        console.log(Math.max(...arr))//3
+
+
+    </script>
+</body>
+</html>

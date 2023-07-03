@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03- constructor</title>
+</head>
+<body>
+    <script>
+        //1. prototype有constrctor,指向构造函数
+        function Star(name){
+            this.name =name
+        }
+        const wf = new Star('王菲')
+        // console.log(wf.prototype)  //prototype是构造函数的
+        console.log(Star.prototype)  //有constructor
+        
+        //2.指向调用的构造函数
+        console.log(Star.prototype.constructor===Star)  //true
+
+        //3.一旦赋值就不相等
+        function Sta(name){
+            this.name =name
+        }
+        Sta.prototype={
+            sing:function(){
+                console.log('singing')
+            }
+        }
+        console.log(Sta.prototype)//只有sing 没有construtor
+
+        //4. 重新指回来
+        function St(name){
+            this.name =name
+        }
+        St.prototype={
+            constructor:St,
+            sing:function(){
+                console.log('singing')
+            }
+        }
+        console.log(St.prototype)//有sing 有construtor
+        console.log(St.prototype.constructor===St)  //true
+
+
+
+    </script>
+</body>
+</html>

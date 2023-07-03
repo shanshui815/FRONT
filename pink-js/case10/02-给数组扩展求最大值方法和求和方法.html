@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-给数组扩展求最大值方法和求和方法</title>
+</head>
+<body>
+    <script>
+        /*max*/
+        // Array.prototype.max=()=>{
+        //     return Math.max(...this) //箭头没有this
+
+        // }
+        // console.log([1,2,3].max())//错
+        Array.prototype.max=function(){
+            return Math.max(...this)
+        }   
+        console.log([1,88,3].max())//88
+
+        /*min*/
+        Array.prototype.min=function(){
+            return Math.min(...this)
+        }   
+        console.log([1,88,3].min())//1
+
+        /*sum*/
+        Array.prototype.sum=function(){
+            return this.reduce((prev,item)=>prev+item,0)
+        }   
+        console.log([1,88,1].sum())//90
+
+    </script>
+</body>
+</html>

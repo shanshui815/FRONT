@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-throw抛出异常</title>
+</head>
+<body>
+    <script>
+        function fn(x,y){
+            if(!x || !y){
+                throw new Error('未传入参数')//没有这句就是NaN
+            }
+            return x+y
+        }
+        console.log(fn())
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        //find  有返回值
+        const arr =['apple','milk','coffie','sun']
+        const res = arr.find(item=>  item ==='sun')
+        console.log(res) //sun
+
+        //真正用法，获得对象
+        const data=[
+            {
+                name:'xiaomi',
+                price:1999
+            },
+            {
+                name:'huawei',
+                price:3999
+            }
+        ]
+
+        const re = data.find(item=>item.name==='xiaomi')
+        console.log(re)
+
+// 把对象里的值获取，凭借，写到div里面
+            const spec = {size:'40cm*40cm',color:'red'}
+            document.querySelector('div').innerHTML =  Object.values(spec).join('/')
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const oldObj={
+            name:'zxx',
+            age:18,
+            hobby:['sing','dance'],
+            family:{
+                mom:'ljz',
+                sis:'yxx'
+            }
+        }
+        // console.log(oldObj )
+        let newObj={}
+        function DeepCopy(newObj,oldObj){
+            for(let k in oldObj){
+                if(oldObj[k] instanceof Array){
+                    newObj[k]=[]
+                    DeepCopy(newObj[k],oldObj[k])
+                }else if(oldObj[k] instanceof Object){
+                    newObj[k]={}
+                    DeepCopy(newObj[k],oldObj[k])
+                }else{
+                    newObj[k] = oldObj[k] 
+                }
+            }
+        }
+        DeepCopy(newObj,oldObj)
+        newObj.name ='new zxx'
+        newObj.hobby[0] ='new sing'
+        newObj.family.mom="new mom"
+        console.log(oldObj )
+        console.log('---------' )
+        console.log(newObj )
+
+    </script>
+</body>
+</html>

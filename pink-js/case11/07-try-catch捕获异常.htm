@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>hello</p>
+    <script>
+        function fn(){
+            try{
+
+                document.querySelector('.p').innerHTML='my hello'
+            }catch(error){
+                console.log('打印报错信息')
+                console.log(error.message)
+                // return
+                throw new Error('这里出错了，我抛出异常，终端程序后面代码除了finall都不执行')
+            }
+            finally{
+                console.log('我是finally,无论对错，我一定执行')
+            }
+
+            console.log('原本catch里没有retrn或者throw，我会执行')
+        }
+fn()
+    </script>
+</body>
+</html>

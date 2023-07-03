@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链</title>
+</head>
+<body>
+    <script>
+        function Girl(){}
+        const my = new Girl()
+        //实例对象的__proto__指向原型对象
+        console.log(my.__proto__===Girl.prototype) //true
+        //原型对象有constructor ，指向构造函数
+        console.log(Girl.prototype.constructor === Girl) //true
+        //原型对象是对象，对象都有__proto__,指向原型对象
+        console.log(Girl.prototype.__proto__===Object.prototype)//true
+        //原型对象都有constructor ，指向构造函数
+        console.log(Object.prototype.constructor === Object)//true
+        //万物皆对象，对象有__proto__,指向null
+        console.log(Object.prototype.__proto__ === null  )//true
+
+
+
+        //判断是否在原型链上
+        console.log('----------')
+        console.log(my instanceof Girl) //true
+        console.log(my instanceof Object) //true
+        console.log(my instanceof Array) //false
+        console.log([1,2,3] instanceof Array) //true
+        console.log([1,2,3] instanceof Object) //true
+        console.log(Array instanceof Object) //true
+        
+
+
+    </script>
+</body>
+</html>

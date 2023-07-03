@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型对象</title>
+</head>
+<body>
+    <script>
+   // 构造函数的方法浪费内存
+        function Star(name,age){ //大写+new
+            this.name =name
+            this.age=age
+            this.sing=()=>console.log('I can sing ')
+
+        }
+        const lrt = new Star('李若彤',55)
+        const wf = new Star('王菲',50)
+        console.log(lrt.sing === wf.sing) //false
+
+
+  //原型对象
+        console.dir(Star.prototype) //Object 
+        Star.prototype.dance=()=>console.log('I can dance')
+        wf.dance()//I can dance
+        console.log(lrt.dance === wf.dance)  //true
+        
+
+  //构造函数和原型对象里的this都指向实例对象
+        let that,that1,that2
+        function Sta(name,age){ //大写+new
+            this.name =name
+            this.age=age
+            that = this
+            this.sing=()=>console.log('I can sing ')
+
+        }
+        
+        const my = new Sta('zxx',22) 
+        console.log(that===my)// true 构造函数指向my
+
+        Sta.prototype.dance=()=>{
+            that1=this
+            console.log('I can dance')
+        }
+        Sta.prototype.dance1=function(){//函数会提升
+            that2=this
+            console.log('----I can dance2')
+        }
+        my.dance()
+        console.log(that1)//  指向window ,箭头函数没this
+        my.dance1()
+        console.log(that2===my)//  true
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-JSON实现深拷贝</title>
+</head>
+<body>
+    <script>
+        const obj={
+            name:'zxx',
+            age:18,
+            hobby:['sing','dance'],
+            family:{
+                mom:'ljz',
+                sis:'yxx'
+            }
+        }
+        var deep = JSON.parse(JSON.stringify(obj))
+        deep.family.mom="new mom"
+        console.log(deep)
+        console.log(obj)
+    </script>
+</body>
+</html>
