@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .res{
+            width: 200px;
+            height: 200px;
+            border: 1px solid ;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="res"></div>
+    
+    <script>
+        const div =document.querySelector('div')
+        const obj ={
+            name:'zxx',
+            age:26
+        }
+        div.addEventListener('mouseover',()=>{
+            const xhr = new XMLHttpRequest()
+            xhr.open('POST','http://127.0.0.1:3000/server')
+
+            //设置请求头
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            //设置自定义请求头
+            xhr.setRequestHeader('name','zxx');
+
+            xhr.send(JSON.stringify(obj))
+            // xhr.send('psd=1111,name=2222')
+            
+            xhr.onreadystatechange=()=>{
+                if(xhr.readyState===4 && xhr.status>=200 && xhr.status <300){
+                    console.log(xhr.status)
+                    console.log(xhr.statusText)
+                    console.log(xhr.getAllResponseHeaders())
+                    console.log(xhr.response)
+                    div.innerHTML=xhr.response
+                }
+            }
+        })
+    </script>
+    
+    
+</body>
+</html>

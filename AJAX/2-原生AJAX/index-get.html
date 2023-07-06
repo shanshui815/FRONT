@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index get</title>
+    <style>
+        .res{
+            width: 200px;
+            height: 200px;
+            border: 1px solid ;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>按钮</button>
+    <div class="res"></div>
+</body>
+<script>
+    const btn =document.querySelector('button')
+    const div =document.querySelector('div')
+
+    btn.addEventListener('click',()=>{
+        // 1.创建对象
+        const xhr =new XMLHttpRequest()// xhr AJAX请求的筛选
+        // 2.初始化，设置请求方法和url(打开通道，设置目的地和行驶方法)
+        xhr.open('GET','http://127.0.0.1:3000/server?a=100&b=200')
+        // 3.发送
+        xhr.send()
+        // 4.接收
+        //readystate 0 未初始化 1 open调用完毕 2send调用完毕 3服务端返回部分结果  4服务端返回全部结果
+        xhr.onreadystatechange=()=>{
+            if(xhr.readyState ===4){
+                console.log(xhr.status)//响应码
+                console.log(xhr.statusText)  //响应字符串
+                console.log(xhr.getAllResponseHeaders()) //所有响应头
+                console.log(xhr.response) //响应体
+                if(xhr.status >=200 && xhr.status <300){
+                    div.innerHTML=xhr.response
+                }
+            }
+        }
+    })
+
+</script>
+</html>

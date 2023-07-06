@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index get</title>
+    <style>
+        .res{
+            width: 200px;
+            height: 200px;
+            border: 1px solid ;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button>按钮</button>
+    <div class="res"></div>
+</body>
+<script>
+    const btn =document.querySelector('button')
+    const div =document.querySelector('div')
+
+    btn.addEventListener('click',()=>{
+        const xhr =new XMLHttpRequest()// xhr AJAX请求的筛选
+        xhr.open('GET','http://127.0.0.1:3000/delay?')
+        //1. 超时设置 取消请求 
+        xhr.timeout=2000
+        //2. 超时回调
+        xhr.ontimeout = ()=>{
+            alert('超时')
+        }
+        //3.网络异常回调
+        xhr.onerror = ()=>{
+            alert('网络异常')
+        }
+
+        xhr.send()
+        xhr.onreadystatechange=()=>{
+            if(xhr.readyState ===4 && xhr.status >=200 && xhr.status <300){
+                div.innerHTML= xhr.response
+            }
+        }
+    })
+
+</script>
+</html>
